@@ -54,6 +54,8 @@ def predict(package: dict, input: list) -> np.ndarray:
 
     # run model
     model = package['model']
+    model = model.to(CONFIG['DEVICE'])
+
     with torch.no_grad():
         # convert input from list to Tensor
         X = torch.Tensor(X)
