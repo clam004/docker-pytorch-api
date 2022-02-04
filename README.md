@@ -9,19 +9,35 @@ Deploying PyTorch as a RESTAPI using Docker and FastAPI with CUDA support
 lets start from the very beginning, before any understanding of Docker, just good old python virtual environments, these terminal commands assume you have python 3.8 installed as python3.8 and get you to the old fashioned way of setting up a virtual python environment with the machine learning libraries we need such torch and sklearn
 
 ```console
-pip3 install virtualenv
+$ pip3 install virtualenv
 
-virtualenv venv --python=python3.8
+$ virtualenv venv --python=python3.8
 
-source venv/bin/activate
+$ source venv/bin/activate
 
-pip3 install -r requirementsDS.txt
+(venv) $ pip3 install -r requirementsDS.txt
 
-jupyter notebook
+(venv) $ jupyter notebook
 ```
 
 navigate to notebook/Model.ipynb to train a toy model
-and save the preprocessing module for later use by the API
+and save the model and the preprocessing module for later use by the API
+
+```python
+from joblib import dump
+
+torch.save(model.state_dict(), '../model/model.pt')
+
+dump(scaler, '../model/scaler.joblib', compress=True)
+```
+
+in the app directory
+
+```console
+(venv) $  python main.py
+```
+
+Navigate to http://localhost:8080/docs to test the API
 
 ## Credit and References
 
