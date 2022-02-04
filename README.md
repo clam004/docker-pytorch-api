@@ -6,7 +6,8 @@ Deploying PyTorch as a RESTAPI using Docker and FastAPI with CUDA support
 - Ubuntu 18.04.3 LTS (bionic)
 - Python 3.8
 - Cuda 10.1
-- 
+- cudnn7.6.4
+- PyTorch 1.10.0
 
 ### Running just the model API without Docker
 
@@ -58,6 +59,8 @@ in the app/ directory
 
 Here we build the model API into a docker image. All the dependencies our model API needs will be contained inside the image and will have no conflict with other APIs or applications when we scale it. 
 
+#### what are the spesc for the Image we want to grab from DockerHub?
+
 What CUDNN am I using?
 
 ```
@@ -96,7 +99,14 @@ Tags for Nvidia GPU Docker Images
 
 <img src="https://i0.wp.com/varhowto.com/wp-content/uploads/2020/07/Use-nvcc-version-to-check-cuda-version.png?w=606&ssl=1" height=200, width=500>
 
+#### Dockerfile
+
+The Dockerfile turns this application into a container. Inside you will see a commented file
+showing how first an Nvidia CUDA image is first nbuilt. Then apt-get and miniconda are used to
+build python3.8, then PyTorch, then the API and model itself are loaded. Last,  set the entrypoint as /start.sh and expose port 80 of the image.
+
+## Credit and references
 
 Thank you to [Ming](https://github.com/ming0070913/example-ml-project) for the original version of this tutorial
 
-Thank you to [Nikolai Janakiev](https://janakiev.com/blog/pytorch-iris/) 
+Thank you to [Nikolai Janakiev](https://janakiev.com/blog/pytorch-iris/) for the toy model
