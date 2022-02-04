@@ -66,6 +66,7 @@ What CUDNN am I using?
 ```
 
 the below is am example where the cudnn verison is CUDNN 7.6.3
+
 <img src="https://www.programmerall.com/images/696/64/6449e5a8805928f086215fde26801800.png" height=200, width=500>
 
 What CUDA version am I using ?
@@ -74,6 +75,7 @@ What CUDA version am I using ?
 nvcc --version
 ```
 the below is CUDA 10.1
+
 <img src="https://i0.wp.com/varhowto.com/wp-content/uploads/2020/07/Use-nvcc-version-to-check-cuda-version.png?w=606&ssl=1" height=200, width=500>
 
 
