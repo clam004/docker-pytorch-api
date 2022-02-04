@@ -16,7 +16,12 @@ python3.8 -m venv env
 source env/bin/activate
 
 pip3 install -r requirementsDS.txt
+
+jupyter notebook
 ```
+
+navigate to notebook/Model.ipynb to train a toy model
+and save the preprocessing module for later use by the API
 
 ## Credit and References
 
