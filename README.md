@@ -72,9 +72,27 @@ the below is am example where the cudnn verison is CUDNN 7.6.3
 What CUDA version am I using ?
 
 ```
-nvcc --version
+(venv) $ nvcc --version
 ```
 the below is CUDA 10.1
+
+What Ubuntu version am I using?
+
+```
+(venv) $ lsb_release -a
+```
+The below is version 18.04
+```
+No LSB modules are available.
+Distributor ID: Ubuntu
+Description:    Ubuntu 18.04 LTS
+Release:    18.04
+Codename:   bionic
+```
+
+Tags for Nvidia GPU Docker Images
+
+[NVIDIA Docker Image s](https://gitlab.com/nvidia/container-images/cuda/blob/master/doc/supported-tags.md)
 
 <img src="https://i0.wp.com/varhowto.com/wp-content/uploads/2020/07/Use-nvcc-version-to-check-cuda-version.png?w=606&ssl=1" height=200, width=500>
 
