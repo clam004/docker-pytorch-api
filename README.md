@@ -102,7 +102,7 @@ Tags for Nvidia GPU Docker Images
 #### Dockerfile
 
 The Dockerfile turns this application into a container. Inside you will see a commented file
-showing how first an Nvidia CUDA image is first nbuilt. Then apt-get and miniconda are used to
+showing how first an Nvidia CUDA image is first built. Then apt-get and miniconda are used to
 build python3.8, then PyTorch, then the API and model itself are loaded. Last,  set the entrypoint as /start.sh and expose port 80 of the image.
 
 ## Credit and references
