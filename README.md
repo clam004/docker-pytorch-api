@@ -108,6 +108,11 @@ build python3.8, then PyTorch, then the API and model itself are loaded. Last,  
 ```
 (venv) you@you:/path/to/docker-pytorch-api$ bash docker_build.sh
 ```
+this may take awhile
+
+```
+(venv) you@you:/path/to/docker-pytorch-api$ bash docker_run_local.sh
+```
 
 ## Credit and references
 
