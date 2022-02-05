@@ -57,9 +57,11 @@ in the app/ directory
 
 ### Deploying with Docker
 
+[Installing Docker on Ubuntu and some basic Docker commands](https://www.simplilearn.com/tutorials/docker-tutorial/how-to-install-docker-on-ubuntu)
+
 Here we build the model API into a docker image. All the dependencies our model API needs will be contained inside the image and will have no conflict with other APIs or applications when we scale it. 
 
-#### what are the spesc for the Image we want to grab from DockerHub?
+#### what are the specs for the Image we want to grab from DockerHub?
 
 What CUDNN am I using?
 
@@ -99,7 +101,14 @@ Tags for Nvidia GPU Docker Images
 
 <img src="https://i0.wp.com/varhowto.com/wp-content/uploads/2020/07/Use-nvcc-version-to-check-cuda-version.png?w=606&ssl=1" height=200, width=500>
 
-#### Dockerfile
+If you have my exact specs you would choose
+
+```
+FROM nvidia/cuda:10.1-cudnn7-runtime-ubuntu18.04
+```
+in your Dockerfile
+
+#### Whats Dockerfile?
 
 The Dockerfile turns this application into a container. Inside you will see a commented file
 showing how first an Nvidia CUDA image is first built. Then apt-get and miniconda are used to
