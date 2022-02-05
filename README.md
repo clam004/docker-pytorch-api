@@ -122,6 +122,19 @@ this may take awhile
 ```
 (venv) you@you:/path/to/docker-pytorch-api$ bash docker_run_local.sh
 ```
+and to see it running
+
+```
+(venv) you@you:/path/to/docker-pytorch-api$ docker ps
+```
+
+to stop it
+
+```
+(venv) you@you:/path/to/docker-pytorch-api$ docker stop <CONTAINER ID>
+```
+
+
 
 ## Credit and references
 
