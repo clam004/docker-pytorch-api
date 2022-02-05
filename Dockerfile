@@ -1,4 +1,4 @@
-FROM nvidia/10.1-cudnn7-runtime-ubuntu18.04
+FROM nvidia/cuda:10.1-cudnn7-runtime-ubuntu18.04
 
 # install utilities
 RUN apt-get update && \
@@ -28,7 +28,7 @@ RUN pip3 --timeout=300 --no-cache-dir install -r requirements.txt
 # Copy model files
 COPY ./model /model
 
-# Copy app files
+# Copy app FASTAPI files
 COPY ./app /app
 WORKDIR /app/
 ENV PYTHONPATH=/app

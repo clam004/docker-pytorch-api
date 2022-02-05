@@ -14,15 +14,15 @@ Deploying PyTorch as a RESTAPI using Docker and FastAPI with CUDA support
 lets start from the very beginning, before any understanding of Docker, just good old python virtual environments, these terminal commands assume you have python 3.8 installed as python3.8 and get you to the old fashioned way of setting up a virtual python environment with the machine learning libraries we need such torch and sklearn
 
 ```console
-$ pip3 install virtualenv
+you@you:/path/to/folder$ pip3 install virtualenv
 
-$ virtualenv venv --python=python3.8
+you@you:/path/to/folder$ virtualenv venv --python=python3.8
 
-$ source venv/bin/activate
+you@you:/path/to/folder$ source venv/bin/activate
 
-(venv) $ pip3 install -r requirementsDS.txt
+(venv) you@you:/path/to/folder$ pip3 install -r requirementsDS.txt
 
-(venv) $ jupyter notebook
+(venv) you@you:/path/to/folder$ jupyter notebook
 ```
 
 navigate to notebook/Model.ipynb to train a toy model
@@ -39,7 +39,7 @@ dump(scaler, '../model/scaler.joblib', compress=True)
 in the app/ directory
 
 ```console
-(venv) $  python main.py
+(venv) you@you:/path/to/folder$  python main.py
 ```
 
 Navigate to http://localhost:8080/docs to test the API
@@ -52,7 +52,7 @@ used by main.py or the scripts imported to main.py
 in the app/ directory
 
 ```console
-(venv) $  python -m pytest
+(venv) you@you:/path/to/folder$  python -m pytest
 ```
 
 ### Deploying with Docker
@@ -64,7 +64,7 @@ Here we build the model API into a docker image. All the dependencies our model 
 What CUDNN am I using?
 
 ```
-(venv) $ cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2
+(venv) you@you:/path/to/folder$ cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2
 
 ```
 
@@ -75,14 +75,14 @@ the below is am example where the cudnn verison is CUDNN 7.6.3
 What CUDA version am I using ?
 
 ```
-(venv) $ nvcc --version
+(venv) you@you:/path/to/folder$ nvcc --version
 ```
 the below is CUDA 10.1
 
 What Ubuntu version am I using?
 
 ```
-(venv) $ lsb_release -a
+(venv) you@you:/path/to/folder$ lsb_release -a
 ```
 The below is version 18.04
 ```
@@ -104,6 +104,10 @@ Tags for Nvidia GPU Docker Images
 The Dockerfile turns this application into a container. Inside you will see a commented file
 showing how first an Nvidia CUDA image is first built. Then apt-get and miniconda are used to
 build python3.8, then PyTorch, then the API and model itself are loaded. Last,  set the entrypoint as /start.sh and expose port 80 of the image.
+
+```
+(venv) you@you:/path/to/docker-pytorch-api$ bash docker_build.sh
+```
 
 ## Credit and references
 
