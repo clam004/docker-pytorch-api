@@ -119,6 +119,24 @@ build python3.8, then PyTorch, then the API and model itself are loaded. Last,  
 ```
 this may take awhile
 
+you can also do 
+
+```
+docker build --compress -t ml/project1:latest .
+```
+
+but if you get an error like this
+
+```
+permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock
+```
+
+try
+
+```
+sudo usermod -a -G docker $USER
+```
+
 ```
 (venv) you@you:/path/to/docker-pytorch-api$ bash docker_run_local.sh
 ```
