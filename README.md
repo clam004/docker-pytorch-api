@@ -97,7 +97,7 @@ Codename:   bionic
 
 Tags for Nvidia GPU Docker Images
 
-[NVIDIA Docker Image s](https://gitlab.com/nvidia/container-images/cuda/blob/master/doc/supported-tags.md)
+[NVIDIA Docker Images](https://gitlab.com/nvidia/container-images/cuda/blob/master/doc/supported-tags.md)
 
 <img src="https://i0.wp.com/varhowto.com/wp-content/uploads/2020/07/Use-nvcc-version-to-check-cuda-version.png?w=606&ssl=1" height=200, width=500>
 
@@ -136,6 +136,13 @@ try
 ```
 sudo usermod -a -G docker $USER
 ```
+or 
+```
+sudo gpasswd -a $USER docker
+```
+
+where $USER is vicki in the case that you have `(env) vicki@virtual-machine: ~/home/vicki$ `
+
 
 ```
 (venv) you@you:/path/to/docker-pytorch-api$ bash docker_run_local.sh

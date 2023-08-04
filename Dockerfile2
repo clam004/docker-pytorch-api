@@ -1,0 +1,4 @@
+FROM nvidia/cuda:11.8.0-runtime-ubuntu22.04
+
+# install utilities
+RUN apt-get update && apt-get install --no-install-recommends -y curl
