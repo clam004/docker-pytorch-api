@@ -125,6 +125,12 @@ you can also do
 docker build --compress -t ml/project1:latest .
 ```
 
+or if you have a Dockerfile not named Dockerfile
+
+```
+docker build -t my/project:latest -f MyDockerfile .
+```
+
 but if you get an error like this
 
 ```
