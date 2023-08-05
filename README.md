@@ -157,9 +157,10 @@ where $USER is vicki in the case that you have `(env) vicki@virtual-machine: ~/h
 ```
 or
 ```
-(venv) you@you:/path$ docker run -it --name carson-test --gpus '"device=0,1"' newnode/carson-test:latest
+(venv) you@you:/path$ docker run -d -t --name carson-test0 --gpus '"device=0,1"' newnode/carson-test:latest
 ```
 the -t (pseudo-tty) docker parameter keeps the container running, you will find yourself inside. try `ls`
+the -d Runs container in background and print container ID
 
 and to see it running
 ```
