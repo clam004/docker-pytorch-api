@@ -114,12 +114,11 @@ The Dockerfile turns this application into a container. Inside you will see a co
 showing how first an Nvidia CUDA image is first built. Then apt-get and miniconda are used to
 build python3.8, then PyTorch, then the API and model itself are loaded. Last,  set the entrypoint as /start.sh and expose port 80 of the image.
 
+##### build
 ```
 (venv) you@you:/path/to/docker-pytorch-api$ bash docker_build.sh
 ```
-this may take awhile
-
-you can also do 
+this may take awhile. you can also do 
 
 ```
 docker build --compress -t ml/project1:latest .
@@ -149,12 +148,20 @@ sudo gpasswd -a $USER docker
 
 where $USER is vicki in the case that you have `(env) vicki@virtual-machine: ~/home/vicki$ `
 
+##### run
 
+[docker run with GPUs](https://docs.docker.com/config/containers/resource_constraints/)
+[keep docker running](https://devopscube.com/keep-docker-container-running/)
 ```
-(venv) you@you:/path/to/docker-pytorch-api$ bash docker_run_local.sh
+(venv) you@you:/path$ bash docker_run_local.sh
 ```
+or
+```
+(venv) you@you:/path$ docker run -it --name carson-test --gpus '"device=0,1"' newnode/carson-test:latest
+```
+the -t (pseudo-tty) docker parameter keeps the container running, you will find yourself inside. try `ls`
+
 and to see it running
-
 ```
 (venv) you@you:/path/to/docker-pytorch-api$ docker ps
 ```
@@ -162,9 +169,16 @@ and to see it running
 to stop it
 
 ```
-(venv) you@you:/path/to/docker-pytorch-api$ docker stop <CONTAINER ID>
+(venv) you@you:/path/to/docker-pytorch-api$ docker stop 0ab99d8ab11c
 ```
 
+to attach the container to the terminal session
+
+```
+docker exec -it 0ab99d8ab11c /bin/bash
+```
+
+where 0ab99d8ab11c is the `<CONTAINER_ID>`
 
 
 ## Credit and references
